@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>澳客 · 知识库入口指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f4f9fe;
+      color: #1d2b38;
+      line-height: 1.6;
+      padding: 1.5rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* 头部区域 */
+    .hero {
+      background: linear-gradient(145deg, #eaf5ef 0%, #d9ece0 100%);
+      padding: 2.8rem 2rem 2.2rem;
+      border-radius: 32px;
+      box-shadow: 0 6px 18px rgba(0, 80, 60, 0.08);
+      margin-bottom: 2.8rem;
+      border: 1px solid rgba(30, 130, 100, 0.12);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #0d4d3a;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #1d6b50;
+      background: rgba(255,255,245,0.5);
+      display: inline-block;
+      padding: 0.3rem 1.6rem;
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
+      margin-top: 0.3rem;
+      border: 1px solid #80baa0;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 1.2rem auto 0;
+      color: #1f3f31;
+      font-size: 1.05rem;
+    }
+
+    /* 网格卡片目录感 */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin: 2.5rem 0 2rem;
+    }
+
+    .card {
+      background: #ffffffec;
+      backdrop-filter: blur(2px);
+      border-radius: 28px;
+      padding: 1.8rem 1.6rem 2rem;
+      box-shadow: 0 4px 12px rgba(0, 60, 50, 0.06);
+      border: 1px solid #c7e0d4;
+      transition: transform 0.15s ease, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(20, 90, 70, 0.08);
+      border-color: #73b396;
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      font-weight: 550;
+      color: #0a4f3b;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #b3d9c6;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card h3::before {
+      content: "▹";
+      color: #2a7f60;
+      font-size: 1.3rem;
+    }
+
+    .card p, .card li {
+      font-size: 0.98rem;
+      color: #233b30;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0.2rem;
+    }
+
+    .card ul li {
+      padding: 0.3rem 0 0.3rem 1.2rem;
+      position: relative;
+    }
+
+    .card ul li::before {
+      content: "•";
+      color: #308561;
+      font-weight: bold;
+      position: absolute;
+      left: 0.1rem;
+    }
+
+    /* 提示区 + 相关信息混合卡片 */
+    .info-extra {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 2rem 0 2.8rem;
+    }
+
+    .info-box {
+      flex: 1 1 300px;
+      background: #e9f3ed;
+      border-radius: 28px;
+      padding: 1.6rem 1.8rem;
+      border-left: 6px solid #2b8d66;
+      box-shadow: 0 4px 8px rgba(0, 60, 45, 0.05);
+    }
+
+    .info-box h4 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #073d2d;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .info-box p, .info-box li {
+      font-size: 0.96rem;
+      color: #1e4234;
+    }
+
+    .info-box ul {
+      padding-left: 1.4rem;
+      margin-top: 0.3rem;
+    }
+
+    .info-box ul li {
+      padding: 0.2rem 0;
+    }
+
+    .tip-badge {
+      display: inline-block;
+      background: #d1ecdd;
+      color: #0a422f;
+      font-weight: 500;
+      padding: 0.15rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      letter-spacing: 0.3px;
+      border: 1px solid #81b99b;
+    }
+
+    /* 说明区段落 */
+    .description-block {
+      background: #ffffffd5;
+      backdrop-filter: blur(2px);
+      border-radius: 28px;
+      padding: 2rem 2rem 1.8rem;
+      margin: 2rem 0 1.2rem;
+      border: 1px solid #b9d5c6;
+      box-shadow: 0 4px 10px rgba(10, 70, 50, 0.03);
+    }
+
+    .description-block h2 {
+      font-size: 1.7rem;
+      font-weight: 500;
+      color: #094432;
+      margin-bottom: 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    .description-block p {
+      margin-bottom: 1rem;
+      color: #1a382d;
+    }
+
+    .description-block strong {
+      color: #0a5e42;
+      font-weight: 600;
+    }
+
+    .faq-mini {
+      background: #eef7f1;
+      border-radius: 24px;
+      padding: 1.4rem 1.8rem;
+      margin-top: 1.8rem;
+    }
+
+    .faq-mini p {
+      margin-bottom: 0.4rem;
+      font-weight: 450;
+    }
+
+    .faq-mini small {
+      color: #22614a;
+      display: block;
+      margin-top: 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    /* 链接嵌入句子 */
+    .inline-link {
+      color: #1b7656;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1.5px solid #7eb99c;
+      transition: border-color 0.15s, background 0.15s;
+      padding: 0 0.1rem;
+    }
+
+    .inline-link:hover {
+      background: #d4efe0;
+      border-bottom-color: #115d42;
+      border-radius: 4px;
+    }
+
+    /* 移动端 */
+    @media (max-width: 640px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .hero {
+        padding: 2rem 1.2rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .grid-cards {
+        gap: 1.2rem;
+      }
+      .card {
+        padding: 1.4rem;
+      }
+      .info-extra {
+        flex-direction: column;
+      }
+      .description-block {
+        padding: 1.6rem;
+      }
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 0.5rem 0 0.2rem;
+      color: #3d6b58;
+      font-size: 0.9rem;
+      border-top: 1px solid #b6d3c2;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- hero 介绍区 -->
+  <div class="hero">
+    <h1>📖 澳客 · 知识库</h1>
+    <span class="sub">站点说明 · 可信指南</span>
+    <p>一份围绕 <strong>澳客</strong> 整理的信息参考页，帮助新访客快速理解网站定位、数据背景与使用注意。内容保持客观，不带评价性引导。</p>
+  </div>
+
+  <!-- 网格卡片：目录感布局 -->
+  <div class="grid-cards">
+    <div class="card">
+      <h3>站点背景</h3>
+      <p><a href="https://index-zh-okooo.com" class="inline-link">澳客</a> 是一个面向中文用户的信息聚合与索引平台，提供多类目数据整合与查询入口。站点以实用为导向，内容覆盖资讯、工具、资源索引等模块。</p>
+      <ul>
+        <li>整体架构偏重信息归类</li>
+        <li>页面风格简洁，侧重功能</li>
+        <li>长期维护，持续调整</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>可信说明</h3>
+      <p>所有展示内容均来自站点本身或公开可查的渠道。本站仅作介绍与索引，不修改源数据。建议使用者对关键信息进行二次核对，以保持判断的独立性。</p>
+      <ul>
+        <li>不存储用户隐私</li>
+        <li>不植入第三方跟踪</li>
+        <li>内容更新以源站为准</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>适用场景</h3>
+      <p>适合需要快速浏览分类信息、查找常用资源、或初步了解平台结构的用户。可作为日常查询的起点参考，也适合对比不同模块的信息密度。</p>
+      <ul>
+        <li>信息检索与分类浏览</li>
+        <li>工具资源查找</li>
+        <li>结构参考与对比</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 说明区 + 可信细节 -->
+  <div class="description-block">
+    <h2>关于站点 · 更详细的说明</h2>
+    <p><strong>澳客</strong> 本身并非单一的垂直站，而是采用多板块并行的方式组织内容。首页通常聚合近期更新的条目与常用分类，方便从任意入口进入浏览。需要注意的是，不同板块之间的更新频率与侧重点可能存在差异，建议根据具体需求深入对应模块。</p>
+    <p>关于可信度：本介绍页仅作客观陈列，不代替源站策略。任何涉及数据、链接或功能的变更，均以 <a href="https://index-zh-okooo.com" class="inline-link">澳客</a> 实际页面为准。对于重要决策或敏感信息，建议多渠道交叉验证。</p>
+
+    <!-- 迷你 FAQ 摘要 -->
+    <div class="faq-mini">
+      <p><strong>❓ 常见注意</strong></p>
+      <small>— 站点是否免费？基础浏览与索引功能免费，部分模块可能依源站规则而定。</small>
+      <small>— 内容会实时更新吗？索引页按维护节奏同步，具体以源站最新版本为准。</small>
+      <small>— 链接安全？所有指向域名为 index-zh-okooo.com，传输采用常规加密，用户端需自行确保环境安全。</small>
+    </div>
+  </div>
+
+  <!-- 提示区 + 相关信息（并排） -->
+  <div class="info-extra">
+    <div class="info-box">
+      <h4><span class="tip-badge">提示</span> 使用前留意</h4>
+      <ul>
+        <li>部分功能可能需要浏览器启用 JavaScript</li>
+        <li>移动端布局已适配，建议使用现代浏览器</li>
+        <li>如遇到加载异常，可先检查网络或缓存</li>
+      </ul>
+      <p style="margin-top: 0.8rem;">🔹 如需获取最准确的结构，直接访问 <a href="https://index-zh-okooo.com" class="inline-link">澳客</a> 首页即可。</p>
+    </div>
+    <div class="info-box">
+      <h4>📌 相关信息</h4>
+      <ul>
+        <li>主域名：index-zh-okooo.com</li>
+        <li>内容语言：中文（简体）</li>
+        <li>适用设备：桌面 / 平板 / 手机</li>
+        <li>维护状态：持续运营</li>
+      </ul>
+      <p style="margin-top: 1rem; font-size: 0.93rem; border-top: 1px dashed #aac9b7; padding-top: 0.7rem;">本介绍页仅作为信息参考，不构成任何形式的使用建议或保证。</p>
+    </div>
+  </div>
+
+  <!-- 结尾简短声明 -->
+  <footer>
+    <p>基于公开信息整理 · 不涉及隐私收集 · 所有权利归属各自持有者</p>
+  </footer>
+
+</div>
+</body>
+</html>
